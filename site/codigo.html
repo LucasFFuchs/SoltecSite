@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="css/codigo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código</title>
+</head>
+<body>
+    <h1>Código </h1>
+    <p>#include <Ultrasonic.h>
+
+        const int pino_trigger = 2; // Corrija os pinos para os pinos digitais corretos<br>
+        const int pino_echo = 3;<br>
+        const int led = 13;<br>
+        const int buzzer = 10;<br>
+        float distance = 0;<br>
+        long duration;<br>
+        <br>
+        void setup() {<br>
+          Serial.begin(9600);<br>
+          pinMode(pino_trigger, OUTPUT);<br>
+          pinMode(pino_echo, INPUT);<br>
+          pinMode(led, OUTPUT);<br>
+          pinMode(buzzer, OUTPUT);<br>
+        }<br>
+        <br>
+        void loop() {<br>
+          distance = distancef();<br>
+          while (distance <= 2) {<br>
+            digitalWrite(led, HIGH);<br>
+            digitalWrite(led, LOW);<br>
+            tone(buzzer, 1500);<br>
+          } <br>
+          while(distance > 2){<br>
+            digitalWrite(led, LOW);<br>
+            noTone(buzzer);  <br>
+          }<br>
+        }<br>
+        <br>
+        float distancef(){<br>
+          digitalWrite(pino_trigger, LOW);<br>
+          delayMicroseconds(2);<br>
+          digitalWrite(pino_trigger, HIGH);<br>
+          delayMicroseconds(10);<br>
+          digitalWrite(pino_trigger, LOW);<br>
+          <br>
+          // Mede o tempo de duração do pulso de eco<br>
+          duration = pulseIn(pino_echo, HIGH);<br>
+          <br>
+          // Calcula a distância em centímetros<br>
+          distance = duration * 0.034 / 2;<br>
+          <br>
+          return distance;<br>
+        }</p>
+        <a href="index.html">Inicio</a> 
+</body>
+</html>

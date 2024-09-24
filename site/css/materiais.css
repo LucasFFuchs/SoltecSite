@@ -1,0 +1,35 @@
+body{
+    background-color: gray;
+}
+
+h1{
+    text-align: center;
+    font-size: 70pt;
+}
+
+.divs{
+    background-color: darkgray;
+    width: 260px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 20px;
+    border: solid black 3px;
+    border-radius: 30px;
+    user-select: none;
+}
+
+label{
+    font-size: 20pt;
+    user-select: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    margin: 100px;
+    font-size: 20pt;
+    background-color: cadetblue;
+    padding: 5px;
+    border-radius: 10px;
+    border: solid black 2px;
+}
